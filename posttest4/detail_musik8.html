@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail musik 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Detail Alat Musik</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Alat Musik Detail Section -->
+    <section class="musik-detail">
+        <div class="musik-image">
+            <img src="https://schagerl.com/media/8a/01/18/1700129275/A-920ML.jpg" alt="musik 2">
+        </div>
+        <div class="musik-info">
+            <h2>SAXOPHONE</h2>
+            <p><strong>Brand:</strong> Alto</p>
+            <p><strong>Nama Model:</strong> A900 ML</p>
+            <p><strong>Harga:</strong> Rp. 22.000.000,00</p>
+            <p><strong>Statuss:</strong> New</p>
+            <p><strong>Jenis:</strong> Saxophone</p>
+            <p>Tiupan terbaik harus memiliki suara yang terbaik juga.</p>
+        </div>
+    </section>
+
+    <header>
+        <div class="container">
+            <h1>Order Now?</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">detail alat musik</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+        <!-- Form pemesanan alat musik Section -->
+        <div class="form-container">
+            <h2>Form Pemesanan</h2>
+            <form id="inputForm">
+                <div class="form-group">
+                    <label for="name">Nama (Text):</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Umur (Number):</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Kata Sandi (Password):</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="order">Ingin Memesan? (Ya/Tidak):</label>
+                    <select id="order" name="order" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="Ya">Ya</option>
+                        <option value="Tidak">Tidak</option>
+                    </select>
+                </div>
+                <div class="form-group" id="quantityGroup" style="display: none;">
+                    <label for="quantity">Jumlah Pesanan (Number):</label>
+                    <input type="number" id="quantity" name="quantity" min="1">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            <div class="result" id="result"></div>
+        </div>
+    
+        <script>
+            const hargaPerItem = 22000000; // Harga per item adalah 2000
+    
+            // Menampilkan atau menyembunyikan input jumlah pesanan berdasarkan pilihan "Ingin Memesan?"
+            document.getElementById('order').addEventListener('change', function() {
+                const orderValue = this.value;
+                const quantityGroup = document.getElementById('quantityGroup');
+                if (orderValue === 'Ya') {
+                    quantityGroup.style.display = 'block'; // Tampilkan input jumlah pesanan
+                    document.getElementById('quantity').setAttribute('required', true); // Jadikan required jika memilih 'Ya'
+                } else {
+                    quantityGroup.style.display = 'none'; // Sembunyikan input jumlah pesanan
+                    document.getElementById('quantity').removeAttribute('required'); // Hapus required jika memilih 'Tidak'
+                }
+            });
+    
+            // Fungsi untuk menangani submit form
+            document.getElementById('inputForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Mencegah reload halaman
+                
+                // Ambil nilai dari form
+                const name = document.getElementById('name').value;
+                const age = document.getElementById('age').value;
+                const password = document.getElementById('password').value;
+                const order = document.getElementById('order').value;
+                const quantity = document.getElementById('quantity').value;
+    
+                let totalHarga = 0;
+                if (order === 'Ya') {
+                    totalHarga = hargaPerItem * quantity;
+                }
+                
+                // Tampilkan hasil inputan
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <p><strong>Nama:</strong> ${name}</p>
+                    <p><strong>Umur:</strong> ${age}</p>
+                    <p><strong>Kata Sandi:</strong> ${'*'.repeat(password.length)}</p>
+                    <p><strong>Ingin Memesan:</strong> ${order}</p>
+                    ${order === 'Ya' ? `<p><strong>Jumlah Pesanan:</strong> ${quantity}</p><p><strong>Total Harga:</strong> Rp ${totalHarga}</p>` : ''}
+                `;
+            });
+        </script>
+
+
+
+    <script src="script.js"></script>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Toko Alat Musik. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
