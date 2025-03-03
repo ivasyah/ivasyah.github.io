@@ -1,0 +1,419 @@
+:root {
+    --header-bg: rosybrown;
+    --body-bg: #f4f4f4;
+    --text-color: #333;
+    --about-bg: #fff;
+    --tips-bg: #f9f9f9;
+}
+
+.dark-mode {
+    --header-bg: #222;
+    --body-bg: #000000;
+    --text-color: #f4f4f4;
+    --about-bg: #333;
+    --tips-bg: #222;
+}
+
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: century, Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--body-bg);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 {
+    font-family: century, Georgia, serif;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.dark-mode{
+    background-color: #000000;
+
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Header */
+header {
+    background-color: var(--header-bg);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    color: #666;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('oya.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Parfum Section */
+.parfum-section {
+    padding: 2rem;
+    background-color: white;
+}
+
+.parfum-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.parfum-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.parfum-item {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.parfum-item img {
+    max-width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.parfum-item h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+.parfum-item p {
+    color: #666;
+}
+
+/* Hover effect for parfum items */
+.parfum-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.parfum-item:hover img {
+    transform: scale(1.05);
+}
+
+.parfum-item:hover h3 {
+    color: rosybrown;
+}
+
+/* Parfum Detail Section */
+.parfum-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.parfum-detail .parfum-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.parfum-info {
+    max-width: 100%;
+    margin-top: 2rem;
+}
+
+.parfum-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.parfum-info p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.parfum-info strong {
+    color: #333;
+}
+
+.parfum-info p:last-child {
+    margin-top: 1rem;
+}
+
+/* Ulasan Ahli */
+.expert-review {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.expert-review h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.review-content {
+    display: none;
+    margin-top: 20px;
+}
+
+.review-item h4 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.review-item p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.review-item strong {
+    font-weight: bold;
+}
+
+/* About Me */
+.about-section {
+    padding: 2rem;
+    background-color: var(--about-bg);
+    text-align: center;
+}
+
+.about-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.about-section p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.ig:hover {
+    color: deepskyblue;
+}
+
+/* Artikel */
+.tips-section {
+    padding: 20px;
+    background-color: var(--tips-bg);
+}
+
+.tips-section h2 {
+    text-align: center;
+}
+
+.tips-section article {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.article:hover {
+    color: #ddd;
+}
+
+.article:hover a {
+    color: deepskyblue;
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--header-bg);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries */
+@media (min-width: 576px) {
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .parfum-detail {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    .parfum-detail .parfum-image {
+        flex: 1;
+        margin-right: 2rem;
+    }
+
+    .parfum-info {
+        flex: 2;
+        margin-top: 0;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 80%;
+    }
+
+    .hero {
+        height: 80vh;
+    }
+
+    .parfum-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .hero {
+        height: 90vh;
+    }
+}
